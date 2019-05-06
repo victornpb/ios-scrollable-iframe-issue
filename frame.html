@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html {
+            height: 3000px;
+        }
+
+        body {
+            background-color: lavender;
+        }
+
+        p button {
+            background-color: yellow;
+            padding: 22px;
+        }
+
+        #up {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: cyan;
+            padding: 22px;
+        }
+
+        #down {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            background-color: cyan;
+            padding: 22px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Hello</h1>
+    <div>
+        <button id='up'>SCROLL UP</button>
+        <button id='down'>SCROLL DW</button>
+    </div>
+
+    <p><button>BUTTON</button></p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p><button>BUTTON</button></p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p><button>BUTTON</button></p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p><button>BUTTON</button></p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p><button>BUTTON</button></p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p><button>BUTTON</button></p>
+
+
+    <script>
+        /*!
+         * @author Victor B. wwww.victorborges.com
+         * @date   2019-05-03
+         */
+
+        window.addEventListener('load', function () {
+
+            Array.from(document.querySelectorAll('button')).forEach(function (el) {
+                el.onclick = function () {
+                    this.style.backgroundColor = this.style.backgroundColor ? '' : 'red';
+                };
+            });
+
+            document.getElementById('up').onclick = function () {
+                window.scrollBy(0, -50);
+            };
+            document.getElementById('down').onclick = function () {
+                window.scrollBy(0, 50);
+            };
+
+        });
+    </script>
+</body>
+
+</html>
