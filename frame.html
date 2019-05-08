@@ -7,32 +7,37 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        html {
-/*             height: 3000px; */
-        }
-
         body {
             background-color: lavender;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 50px;
         }
 
         p button {
-            background-color: yellow;
+            background-color: silver;
             padding: 22px;
+        }
+
+        .active {
+            background: lime;
         }
 
         #up {
             position: fixed;
-            top: 0;
-            right: 0;
+            top: 5px;
+            right: 5px;
             background-color: cyan;
             padding: 22px;
         }
 
         #down {
             position: fixed;
-            bottom: 0;
-            right: 0;
-            background-color: cyan;
+            bottom: 5px;
+            right: 5px;
+            background-color: yellow;
             padding: 22px;
         }
     </style>
@@ -41,103 +46,28 @@
 <body>
 
     <h1>Frame</h1>
+    <p>
+        1. Tap the buttons in the middle a few times<br>
+        2. Tap the yellow "SCROLL DOWN" button a few times<br>
+        3. Try to tap the buttons in the middle again.
+    </p>
+
     <div>
         <button id='up'>SCROLL UP</button>
-        <button id='down'>SCROLL DW</button>
+        <button id='down'>SCROLL DOWN</button>
     </div>
 
-    <p><button>BUTTON</button></p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p><button>BUTTON</button></p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p><button>BUTTON</button></p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p><button>BUTTON</button></p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p><button>BUTTON</button></p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p><button>BUTTON</button></p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p><button>BUTTON</button></p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p><button>BUTTON</button></p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p><button>BUTTON</button></p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p><button>BUTTON</button></p>
-    
+    <p><button>TAP ME!</button></p>
+    <p><button>TAP ME!</button></p>
+    <p><button>TAP ME!</button></p>
+    <p><button>TAP ME!</button></p>
+    <p><button>TAP ME!</button></p>
+    <p><button>TAP ME!</button></p>
+    <p><button>TAP ME!</button></p>
+    <p><button>TAP ME!</button></p>
+    <p><button>TAP ME!</button></p>
+    <p><button>TAP ME!</button></p>
+
     <script>
         /*!
          * @author Victor B. wwww.victorborges.com
@@ -145,19 +75,24 @@
          */
 
         window.addEventListener('load', function () {
+            
+            document.getElementById('up').onclick = function () {
+                window.scrollBy(0, -50); // scroll up 50 pixels
+            };
+            
+            document.getElementById('down').onclick = function () {
+                window.scrollBy(0, 50); // scroll down 50 pixels
+            };
+            
 
-            Array.from(document.querySelectorAll('button')).forEach(function (el) {
-                el.onclick = function () {
-                    this.style.backgroundColor = this.style.backgroundColor ? '' : 'red';
+            Array.from(document.querySelectorAll('p button')).forEach(function (elm) {
+                var taps = 0;
+                elm.onclick = function () {
+                    taps++;
+                    elm.classList.toggle('active');
+                    elm.innerHTML = "IT WORKS! (" + taps + ")";
                 };
             });
-
-            document.getElementById('up').onclick = function () {
-                window.scrollBy(0, -50);
-            };
-            document.getElementById('down').onclick = function () {
-                window.scrollBy(0, 50);
-            };
 
         });
     </script>
